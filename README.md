@@ -12,7 +12,7 @@ Plane cards are pulled live from [Scryfall](https://scryfall.com/) so every plan
 
 | Command | Description |
 |---------|-------------|
-| `!roll` | Roll the planar die |
+| `/roll` | Roll the planar die |
 
 ### Die results
 
@@ -26,8 +26,7 @@ Plane cards are pulled live from [Scryfall](https://scryfall.com/) so every plan
 
 1. Go to the [Discord Developer Portal](https://discord.com/developers/applications).
 2. Create a new application and add a bot.
-3. Enable the **Message Content** intent under *Bot → Privileged Gateway Intents*.
-4. Copy the bot token.
+3. Copy the bot token.
 
 ### 2. Install & run
 
@@ -57,7 +56,7 @@ python planechase_bot.py
 ### 3. Invite the bot
 
 Generate an invite link in the Developer Portal under *OAuth2 → URL Generator*.
-Select the **bot** scope and these permissions:
+Select the **bot** and **applications.commands** scopes, and these bot permissions:
 
 - Send Messages
 - Embed Links

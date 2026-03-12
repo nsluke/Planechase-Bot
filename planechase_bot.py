@@ -4,11 +4,9 @@ import random
 
 import aiohttp
 import discord
-from discord.ext import commands
 
 # --- CONFIGURATION ---
 BOT_TOKEN = os.environ.get("PLANECHASE_BOT_TOKEN", "")
-PREFIX = "!"
 SCRYFALL_URL = "https://api.scryfall.com/cards/random?q=(t:plane+or+t:phenomenon)"
 
 logging.basicConfig(level=logging.INFO)
@@ -16,9 +14,8 @@ log = logging.getLogger("planechase")
 
 # --- BOT SETUP ---
 intents = discord.Intents.default()
-intents.message_content = True
-
-bot = commands.Bot(command_prefix=PREFIX, intents=intents)
+bot = discord.Client(intents=intents)
+tree = discord.app_commands.CommandTree(bot)
 
 
 async def fetch_random_plane():
@@ -53,11 +50,12 @@ async def fetch_random_plane():
 
 @bot.event
 async def on_ready():
+    await tree.sync()
     log.info("Planar Die is ready! Logged in as %s", bot.user)
 
 
-@bot.command(name="roll", help="Rolls the planar die.")
-async def roll(ctx):
+@tree.command(name="roll", description="Roll the planar die")
+async def roll(interaction: discord.Interaction):
     """
     Simulates a 6-sided Planar Die:
     - 1 side: Planeswalk (fetch a new plane)
@@ -67,24 +65,26 @@ async def roll(ctx):
     die_roll = random.randint(1, 6)
 
     if die_roll == 1:
-        await ctx.send(
+        await interaction.response.send_message(
             "🎲 **You rolled the PLANESWALKER symbol!**\n"
             "🌌 **PLANESWALK!** Finding a new plane..."
         )
         plane_embed = await fetch_random_plane()
         if plane_embed:
-            await ctx.send(embed=plane_embed)
+            await interaction.followup.send(embed=plane_embed)
         else:
-            await ctx.send("❌ Error fetching the new plane.")
+            await interaction.followup.send("❌ Error fetching the new plane.")
 
     elif die_roll == 6:
-        await ctx.send(
+        await interaction.response.send_message(
             "🎲 **You rolled the CHAOS symbol!**\n"
             "🌀 Trigger the chaos ability!"
         )
 
     else:
-        await ctx.send("🎲 **You rolled a BLANK.**\nNothing happens.")
+        await interaction.response.send_message(
+            "🎲 **You rolled a BLANK.**\nNothing happens."
+        )
 
 
 if __name__ == "__main__":
