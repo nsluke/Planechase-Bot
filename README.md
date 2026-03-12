@@ -1,8 +1,8 @@
-# ✈️ Planechase Bot
+# 🃏 MTG Planechase Discord Bot 🃏
 
-A lightweight Discord bot that brings [Planechase](https://mtg.fandom.com/wiki/Planechase) to your Magic: The Gathering games. Roll the planar die right in your server—planeswalk to random planes, trigger chaos abilities, or hit a blank.
+A lightweight Discord bot that brings [Planechase](https://mtg.fandom.com/wiki/Planechase) to your Magic: The Gathering games. Roll the planar die right in your server planeswalk to random planes, trigger chaos abilities, or hit a blank.
 
-Plane cards are pulled live from [Scryfall](https://scryfall.com/) so every planeswalk is a surprise.
+Plane cards are pulled live from [Scryfall](https://scryfall.com/).
 
 ![Discord](https://img.shields.io/badge/Discord-bot-5865F2?logo=discord&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
@@ -16,8 +16,8 @@ Plane cards are pulled live from [Scryfall](https://scryfall.com/) so every plan
 
 ### Die results
 
-- **Planeswalker symbol** (1 in 6) — Planeswalk! A random plane or phenomenon is fetched from Scryfall and displayed.
-- **Chaos symbol** (1 in 6) — Chaos ensues! Trigger the chaos ability of the current plane.
+- **Planeswalker symbol** (1 in 6) — Planeswalk - A random plane or phenomenon is fetched from Scryfall and displayed.
+- **Chaos symbol** (1 in 6) — Chaos ensues - Trigger the chaos ability of the current plane.
 - **Blank** (4 in 6) — Nothing happens.
 
 ## Setup
@@ -31,7 +31,7 @@ Plane cards are pulled live from [Scryfall](https://scryfall.com/) so every plan
 ### 2. Install & run
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Planechase-Bot.git
+git clone https://github.com/nsluke/Planechase-Bot.git
 cd Planechase-Bot
 
 python -m venv venv
