@@ -8,6 +8,10 @@ Plane cards are pulled live from [Scryfall](https://scryfall.com/).
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+## Add to Your Server
+
+[**Click here to add Planechase Bot to your Discord server**](https://discord.com/oauth2/authorize?client_id=1469152184829612245)
+
 ## Commands
 
 | Command | Description |
@@ -55,11 +59,7 @@ python planechase_bot.py
 
 ### 3. Invite the bot
 
-Generate an invite link in the Developer Portal under *OAuth2 → URL Generator*.
-Select the **bot** and **applications.commands** scopes, and these bot permissions:
-
-- Send Messages
-- Embed Links
+Use the [invite link](https://discord.com/oauth2/authorize?client_id=1469152184829612245) above, or generate your own in the Developer Portal under *OAuth2 → URL Generator* with the **bot** and **applications.commands** scopes.
 
 ## How it works
 
